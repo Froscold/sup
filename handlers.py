@@ -103,7 +103,6 @@ def forward_to_user(update, context):
     }
   }
 }
-    )
 
 
 def setup_dispatcher(dp):
