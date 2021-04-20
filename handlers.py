@@ -44,11 +44,13 @@ def forward_to_user(update, context):
         'group_chat_created': False, 'supergroup_chat_created': False, 'channel_chat_created': False, 
         'from': {'id': 49820636, 'first_name': 'Daniil', 'is_bot': False, 'last_name': 'Okhlopkov', 'username': 'danokhlopkov', 'language_code': 'en'}
     }"""
-    user_id = update.message.reply_to_message.forward_from.id
+    def forward_to_user(update, context):
+    user_id = update.channel_post.reply_to_message.forward_from.id
     context.bot.copy_message(
-        message_id=update.message.message_id,
+        message_id=update.channel_post.message_id,
         chat_id=user_id,
-        from_chat_id=update.message.chat_id
+        from_chat_id=update.channel_post.chat_id
+
     )
 
 
