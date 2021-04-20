@@ -51,6 +51,15 @@ def forward_to_user(update, context):
         from_chat_id=update.message.chat_id
     )
 
+    
+def forward_to_user(update, context):
+    user_id = update.channel_post.reply_to_message.forward_from.id
+    context.bot.copy_message(
+        message_id=update.channel_post.message_id,
+        chat_id=user_id,
+        from_chat_id=update.channel_post.chat_id
+
+    )
 
 def setup_dispatcher(dp):
     dp.add_handler(CommandHandler('start', start))
