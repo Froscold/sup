@@ -44,11 +44,65 @@ def forward_to_user(update, context):
         'group_chat_created': False, 'supergroup_chat_created': False, 'channel_chat_created': False, 
         'from': {'id': 49820636, 'first_name': 'Daniil', 'is_bot': False, 'last_name': 'Okhlopkov', 'username': 'danokhlopkov', 'language_code': 'en'}
     }"""
-    user_id = update.message.reply_to_message.forward_from.id
-    context.bot.copy_message(
-        message_id=update.message.message_id,
-        chat_id=user_id,
-        from_chat_id=update.message.chat_id
+    {
+  "update_id": 471632444,
+  "message": {
+    "message_id": 3299,
+    "date": 1613904069,
+    "chat": {
+      "id": -392720014,
+      "type": "group",
+      "title": "test",
+      "all_members_are_administrators": true
+    },
+    "reply_to_message": {
+      "message_id": 3297,
+      "date": 1613904018,
+      "chat": {
+        "id": -392720014,
+        "type": "group",
+        "title": "test",
+        "all_members_are_administrators": true
+      },
+      "forward_date": 1613904018,
+      "text": "пп",
+      "entities": [],
+      "caption_entities": [],
+      "photo": [],
+      "new_chat_members": [],
+      "new_chat_photo": [],
+      "delete_chat_photo": false,
+      "group_chat_created": false,
+      "supergroup_chat_created": false,
+      "channel_chat_created": false,
+      "forward_sender_name": "Daniil Okhlopkov",
+      "from": {
+        "id": 1018878145,
+        "first_name": "999",
+        "is_bot": true,
+        "username": "9999"
+      }
+    },
+    "text": "аппп",
+    "entities": [],
+    "caption_entities": [],
+    "photo": [],
+    "new_chat_members": [],
+    "new_chat_photo": [],
+    "delete_chat_photo": false,
+    "group_chat_created": false,
+    "supergroup_chat_created": false,
+    "channel_chat_created": false,
+    "from": {
+      "id": 49820636,
+      "first_name": "Daniil",
+      "is_bot": false,
+      "last_name": "Okhlopkov",
+      "username": "okhlopkov",
+      "language_code": "en"
+    }
+  }
+}
     )
 
 
