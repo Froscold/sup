@@ -24,8 +24,11 @@ def forward_to_chat(update, context):
         'text': 'TEST QOO', 'entities': [], 'caption_entities': [], 'photo': [], 'new_chat_members': [], 'new_chat_photo': [], 'delete_chat_photo': False, 'group_chat_created': False, 'supergroup_chat_created': False, 'channel_chat_created': False, 
         'from': {'id': 49820636, 'first_name': 'Daniil', 'is_bot': False, 'last_name': 'Okhlopkov', 'username': 'danokhlopkov', 'language_code': 'en'}
     }"""
-    update.message.forward(chat_id=TELEGRAM_SUPPORT_CHAT_ID)
-
+    # update.message.forward(chat_id=TELEGRAM_SUPPORT_CHAT_ID)
+    context.bot.send_message(
+        chat_id=TELEGRAM_SUPPORT_CHAT_ID,
+        text=update.message.from.id + "| " + update.text
+    )
 
 def forward_to_user(update, context):
     """{
@@ -44,10 +47,17 @@ def forward_to_user(update, context):
         'group_chat_created': False, 'supergroup_chat_created': False, 'channel_chat_created': False, 
         'from': {'id': 49820636, 'first_name': 'Daniil', 'is_bot': False, 'last_name': 'Okhlopkov', 'username': 'danokhlopkov', 'language_code': 'en'}
     }"""
-    user_id = update.message.reply_to_message.forward_from.id
+    # user_id = update.message.reply_to_message.forward_from.id
+    # context.bot.copy_message(
+    #     message_id=update.message.message_id,
+    #     chat_id=user_id,
+    #     from_chat_id=update.message.chat_id
+    # )
+
+    index = update.message.reply_to_message.text.find("|")
     context.bot.copy_message(
         message_id=update.message.message_id,
-        chat_id=user_id,
+        chat_id=update.message.reply_to_message.text[:index],
         from_chat_id=update.message.chat_id
     )
 
